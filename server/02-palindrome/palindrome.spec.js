@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-  describe.only('the palindrome canary spec', () => {
+  describe('the palindrome canary spec', () => {
     it('shows the infrastructure works', () => {
     true.should.be.true();
   });
