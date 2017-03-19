@@ -3,8 +3,8 @@ describe('the fahrenheit2celsius canary test', () => {
     true.should.be.true();
   });
 
-  let fahrenheit2celsius = function () {
-    return 0;
+  let fahrenheit2celsius = function (fahrenheitDegree) {
+    return (fahrenheitDegree - 32) / 1.8;
   };
 
   describe('fahrenheit2celsius should', () => {
@@ -12,6 +12,8 @@ describe('the fahrenheit2celsius canary test', () => {
       fahrenheit2celsius(32).should.equal(0);
     });
 
-    it('give 10°C for 50°F');
+    it('give 10°C for 50°F', () => {
+      fahrenheit2celsius(50).should.equal(10);
+    });
   });
 });

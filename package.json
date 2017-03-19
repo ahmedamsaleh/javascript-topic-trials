@@ -10,7 +10,7 @@
     "coverage": "nyc --reporter=lcov --reporter=text --require babel-register npm run spec",
     "spec": "mocha --compilers js:babel-register --reporter spec --growl --recursive ./test-helper.js  server/**/*.spec.js",
     "spec:watch": "nodemon 2>/dev/null  --exec 'npm run spec || true'",
-    "tdd": "npm-run-all --parallel *:watch",
+    "tdd": "npm-run-all --parallel *",
     "test": "karma start karma.conf.js"
   },
   "repository": {
@@ -68,11 +68,11 @@
     "karma-should": "1.0.0",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.8.0",
-    "mocha": "3.2.0",
+    "mocha": "^3.2.0",
     "node-libs-browser": "2.0.0",
     "nodemon": "1.11.0",
     "npm-run-all": "4.0.1",
-    "nyc": "10.0.0",
+    "nyc": "^10.0.0",
     "raw-loader": "0.5.1",
     "script-loader": "0.7.0",
     "should": "11.1.1",
