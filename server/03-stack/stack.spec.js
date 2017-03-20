@@ -6,32 +6,22 @@ describe('the stack spec', () => {
 
   const stackFactory = (size) => {
     if (size < 0) throw new Error('negative size error');
-
-    let counter = 0;
     let items = [];
 
     return {
-      isEmpty: () => counter === 0,
+      isEmpty: () => items.length === 0,
 
       push: (item) => {
-        if (counter < size){
-          items.push(item);
-          counter++;
-        } else {
-          throw new Error('overflow');
-        }
+        if (items.length === size) throw new Error('overflow');
+        items.push(item);
       },
 
       pop: () => {
-        if (counter > 0){
-            counter--;
-            return items.pop();
-        } else {
-          throw new Error('underflow');
-        }
+        if (items.length === 0) throw new Error('underflow');
+        return items.pop();
       },
 
-      size: () => counter
+      size: () => items.length
     };
   };
 
@@ -49,7 +39,7 @@ describe('the stack spec', () => {
       stack.isEmpty().should.be.false();
     });
 
-    it('leaves stack size 1 when pushed', () =>{
+    it('leaves stack size 1 when pushed', () => {
       stack.push();
       stack.size().should.be.equal(1);
     });
