@@ -9,7 +9,10 @@ const makeStack = () => {
     isEmpty: () => currentSize === 0,
     size: () => currentSize,
     push: () => currentSize++,
-    pop: () => currentSize--
+    pop: () => {
+      if (currentSize === 0) throw new Error('Underflow Error: Cannot perform pop on empty stack');
+      currentSize--;
+    }
   };
 };
 
@@ -39,8 +42,13 @@ describe.only('a stack should', () => {
     stack.isEmpty().should.be.true();
   });
 
+  it('throw underflow error when popping an element off of stack and stack is empty', () => {
+    ( () => {
+      stack.pop();
+    }).should.throw('Underflow Error: Cannot perform pop on empty stack');
+  });
+
   it('throw overflow error when pushing an element onto stack and stack is at capacity');
-  it('throw underflow error when popping an element off of stack and stack is empty');
   it('return one after pushing one onto stack and performing a pop');
   it('return two and one in that order after pushing one and two onto stack and performing pop twice');
   it('throw illegal capacity error when creating a stack with negative capacity');
