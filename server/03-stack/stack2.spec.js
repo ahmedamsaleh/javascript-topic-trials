@@ -2,9 +2,11 @@
  * Created by jhtrujil on 3/24/2017.
  */
 
-const makeStack = (capacity = 2) => {
+const makeStack = (capacity) => {
   let currentSize = 0;
   let pushedElements = [];
+
+  if (capacity < 0) throw new Error('Illegal Capacity Error')
 
   return {
     isEmpty: () => currentSize === 0,
@@ -17,7 +19,7 @@ const makeStack = (capacity = 2) => {
     },
 
     pop: () => {
-      if (currentSize === 0) throw new Error('Underflow Error: Cannot perform pop on empty stack');
+      if (currentSize === 0) throw new Error('Underflow Error');
       currentSize--;
       return pushedElements.pop();
     }
@@ -28,7 +30,7 @@ describe.only('a stack should', () => {
   let stack;
 
   beforeEach(() => {
-    stack = makeStack();
+    stack = makeStack(2);
   });
 
   it('be empty when created', () => {
@@ -53,14 +55,15 @@ describe.only('a stack should', () => {
   it('throw underflow error when popping an element off of stack and stack is empty', () => {
     ( () => {
       stack.pop();
-    }).should.throw('Underflow Error: Cannot perform pop on empty stack');
+    }).should.throw('Underflow Error');
   });
 
   it('throw overflow error when pushing an element onto stack and stack is at capacity', () => {
     ( () => {
-      stack.push();
-      stack.push();
-      stack.push();
+      let stack2 = makeStack(2);
+      stack2.push();
+      stack2.push();
+      stack2.push();
     } ).should.throw('Overflow Error');
   });
 
@@ -82,5 +85,9 @@ describe.only('a stack should', () => {
     stack.pop().should.equal(1);
   });
 
-  it('throw illegal capacity error when creating a stack with negative capacity');
+  it('throw illegal capacity error when creating a stack with negative capacity', () => {
+    ( () => {
+      let stack3 = makeStack(-1);
+    }).should.throw('Illegal Capacity Error');
+  });
 });
