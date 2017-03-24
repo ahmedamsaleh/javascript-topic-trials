@@ -3,10 +3,12 @@
  */
 
 const makeStack = () => {
+  let currentSize = 0;
+
   return {
     isEmpty: () => true,
-    size: () => 0,
-    push: () => {}
+    size: () => currentSize,
+    push: () => currentSize++
   };
 };
 
@@ -25,10 +27,10 @@ describe.only('a stack should', () => {
     stack.size().should.equal(0);
   });
 
-  // it('have a size of one after a push', () => {
-  //   stack.push();
-  //   stack.size().should.equal(1);
-  // });
+  it('have a size of one after a push', () => {
+    stack.push();
+    stack.size().should.equal(1);
+  });
 
   it('be empty after one push and pop');
   it('throw overflow error when pushing an element onto stack and stack is at capacity');
