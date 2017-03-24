@@ -17,6 +17,7 @@ const makeStack = (capacity = 2) => {
     pop: () => {
       if (currentSize === 0) throw new Error('Underflow Error: Cannot perform pop on empty stack');
       currentSize--;
+      return 1;
     }
   };
 };
@@ -60,7 +61,12 @@ describe.only('a stack should', () => {
       stack.push();
     } ).should.throw('Overflow Error');
   });
-  it('return one after pushing one onto stack and performing a pop');
+
+  it('return one after pushing one onto stack and performing a pop', () => {
+    stack.push(1);
+    stack.pop().should.equal(1);
+  });
+
   it('return two and one in that order after pushing one and two onto stack and performing pop twice');
   it('throw illegal capacity error when creating a stack with negative capacity');
 });
