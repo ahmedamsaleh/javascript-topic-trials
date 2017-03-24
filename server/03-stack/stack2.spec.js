@@ -4,20 +4,22 @@
 
 const makeStack = (capacity = 2) => {
   let currentSize = 0;
+  let pushedElement;
 
   return {
     isEmpty: () => currentSize === 0,
     size: () => currentSize,
 
-    push: () => {
+    push: (element) => {
       if (currentSize === capacity) throw new Error('Overflow Error');
       currentSize++;
+      pushedElement = element;
     },
 
     pop: () => {
       if (currentSize === 0) throw new Error('Underflow Error: Cannot perform pop on empty stack');
       currentSize--;
-      return 1;
+      return pushedElement;
     }
   };
 };
@@ -65,6 +67,12 @@ describe.only('a stack should', () => {
   it('return one after pushing one onto stack and performing a pop', () => {
     stack.push(1);
     stack.pop().should.equal(1);
+  });
+
+  it('return object after pushing it onto stack and performing a pop', () => {
+    const value = {};
+    stack.push(value);
+    stack.pop().should.equal(value);
   });
 
   it('return two and one in that order after pushing one and two onto stack and performing pop twice');
