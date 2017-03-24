@@ -2,12 +2,21 @@
  * Created by jhtrujil on 3/24/2017.
  */
 
-let stack = {
-  isEmpty: () => true,
-  size: () => 0
+const makeStack = () => {
+  return {
+    isEmpty: () => true,
+    size: () => 0,
+    push: () => {}
+  };
 };
 
 describe.only('a stack should', () => {
+  let stack;
+
+  beforeEach(() => {
+    stack = makeStack();
+  });
+
   it('be empty when created', () => {
     stack.isEmpty().should.be.true();
   });
@@ -16,7 +25,11 @@ describe.only('a stack should', () => {
     stack.size().should.equal(0);
   });
 
-  it('have a size of one after a push');
+  // it('have a size of one after a push', () => {
+  //   stack.push();
+  //   stack.size().should.equal(1);
+  // });
+
   it('be empty after one push and pop');
   it('throw overflow error when pushing an element onto stack and stack is at capacity');
   it('throw underflow error when popping an element off of stack and stack is empty');
