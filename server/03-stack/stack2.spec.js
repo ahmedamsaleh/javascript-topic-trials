@@ -3,14 +3,17 @@
  */
 
 let stack = {
-  isEmpty: () => {
-    return true;
-  }
+  isEmpty: () => true,
+  size: () => 0
 };
 
 describe.only('a stack should', () => {
   it('be empty when created', () => {
     stack.isEmpty().should.be.true();
+  });
+
+  it('have a size of zero when created', () => {
+    stack.size().should.equal(0);
   });
 
   it('have a size of one after a push');
