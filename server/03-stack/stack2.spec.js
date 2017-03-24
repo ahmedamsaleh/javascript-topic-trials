@@ -6,9 +6,10 @@ const makeStack = () => {
   let currentSize = 0;
 
   return {
-    isEmpty: () => true,
+    isEmpty: () => currentSize === 0,
     size: () => currentSize,
-    push: () => currentSize++
+    push: () => currentSize++,
+    pop: () => currentSize--
   };
 };
 
@@ -32,7 +33,12 @@ describe.only('a stack should', () => {
     stack.size().should.equal(1);
   });
 
-  it('be empty after one push and pop');
+  it('be empty after one push and pop', () => {
+    stack.push();
+    stack.pop();
+    stack.isEmpty().should.be.true();
+  });
+
   it('throw overflow error when pushing an element onto stack and stack is at capacity');
   it('throw underflow error when popping an element off of stack and stack is empty');
   it('return one after pushing one onto stack and performing a pop');
