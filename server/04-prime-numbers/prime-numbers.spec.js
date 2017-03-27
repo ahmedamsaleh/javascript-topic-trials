@@ -5,7 +5,7 @@ describe('the prime factors canary spec', () => {
 
   let primeFactors = function (number) {
     const factors = [];
-    if (number > 1) factors.push(2);
+    if (number > 1) factors.push(number);
 
     return factors;
   };
@@ -19,7 +19,10 @@ describe('the prime factors canary spec', () => {
       primeFactors(2).should.be.deepEqual([2]);
     });
 
-    it('3 for 3');
+    it('3 for 3', () => {
+      primeFactors(3).should.be.deepEqual([3]);
+    });
+
     it('2 ,2  for 4');
     it('5 for 5');
     it('2,3 for 6');
