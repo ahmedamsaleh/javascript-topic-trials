@@ -7,12 +7,10 @@ describe('the prime factors canary spec', () => {
 
   let primeFactors = function (number) {
     const factors = [];
-    if (number > 1) {
-      if (number % 2 === 0) {
-        factors.push(2);
-        number /= 2;
+    for (let divisor = 2; number > 1; divisor++) {
+      for (;number % divisor === 0; number /= divisor) {
+        factors.push(divisor);
       }
-      if (number > 1) factors.push(number);
     }
     return factors;
   };
@@ -34,9 +32,20 @@ describe('the prime factors canary spec', () => {
       primeFactors(4).should.be.deepEqual([2, 2]);
     });
 
-    it('5 for 5');
-    it('2,3 for 6');
-    it('2,2,2 for 8');
-    it('3,3 for 9');
+    it('5 for 5', ()=>{
+      primeFactors(5).should.be.deepEqual([5]);
+    });
+
+    it('2,3 for 6', () => {
+      primeFactors(6).should.be.deepEqual([2, 3]);
+    });
+
+    it('2,2,2 for 8', () => {
+      primeFactors(8).should.be.deepEqual([2, 2, 2]);
+    });
+
+    it('3,3 for 9', () => {
+      primeFactors(9).should.be.deepEqual([3, 3]);
+    });
   });
 });
