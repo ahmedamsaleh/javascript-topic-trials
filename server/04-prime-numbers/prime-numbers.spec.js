@@ -5,6 +5,7 @@ describe('the prime factors canary spec', () => {
 
   describe.only('a prime factors function should return', () => {
     it('no prime factor for 1');
+    
     it('2 for 2');
     it('3 for 3');
     it('2 ,2  for 4');
