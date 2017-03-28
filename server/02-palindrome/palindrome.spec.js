@@ -10,6 +10,7 @@ describe('the palindrome canary spec', () => {
       }
     }
 
+	
     function palindrome(phrase) {
       validateInput(phrase);
       let word = phrase.replace(/ /g, '').toLowerCase();
