@@ -5,20 +5,19 @@ describe('the palindrome canary spec', () => {
 
   describe('palindrome should', () => {
     function validateInput(phrase) {
-      if(phrase === null || typeof phrase === 'undefined') {
+      if (phrase === null || typeof phrase === 'undefined') {
         throw new Error('invalid input');
       }
     }
 
-	
+
     function palindrome(phrase) {
       validateInput(phrase);
       let word = phrase.replace(/ /g, '').toLowerCase();
 
-      if(word === '') {
+      if (word === '') {
         return false;
-      }
-      else {
+      } else {
         let reverse = word.split('').reverse().join('');
         return reverse === word;
       }
