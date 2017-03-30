@@ -3,8 +3,15 @@ describe('the prime factors canary spec', () => {
     true.should.be.true();
   });
 
+  const primeFactors = () => {
+    return [];
+  };
+
   describe.only('a prime factors function should', () => {
-    it('return none for 1');
+    it('return none for 1', () => {
+      primeFactors(1).should.deepEqual([]);
+    });
+
     it('return 2 for 2');
     it('return 3 for 3');
     it('return 2 and 2 for 4');
