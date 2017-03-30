@@ -3,25 +3,22 @@
  */
 
 const makeStack = (capacity) => {
-  let currentSize = 0;
-  let pushedElements = [];
+  let elements = [];
 
   if (capacity < 0) throw new Error('Illegal Capacity Error');
 
   return {
-    isEmpty: () => currentSize === 0,
-    size: () => currentSize,
+    isEmpty: () => elements.length === 0,
+    size: () => elements.length,
 
     push: (element) => {
-      if (currentSize === capacity) throw new Error('Overflow Error');
-      currentSize++;
-      pushedElements.push(element);
+      if (elements.length === capacity) throw new Error('Overflow Error');
+      elements.push(element);
     },
 
     pop: () => {
-      if (currentSize === 0) throw new Error('Underflow Error');
-      currentSize--;
-      return pushedElements.pop();
+      if (elements.length === 0) throw new Error('Underflow Error');
+      return elements.pop();
     }
   };
 };
