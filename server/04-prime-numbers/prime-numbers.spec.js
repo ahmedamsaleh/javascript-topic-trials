@@ -45,7 +45,10 @@ describe('the prime factors canary spec', () => {
       primeFactors(6).should.deepEqual([2, 3]);
     });
 
-    it('return 7 for 7');
+    it('return 7 for 7', () => {
+      primeFactors(7).should.deepEqual([7]);
+    });
+
     it('return 2 and 2 and 2 for 8');
     it('return 3 and 3 for 9');
   });
