@@ -6,7 +6,7 @@ const makeStack = (capacity) => {
   let currentSize = 0;
   let pushedElements = [];
 
-  if (capacity < 0) throw new Error('Illegal Capacity Error')
+  if (capacity < 0) throw new Error('Illegal Capacity Error');
 
   return {
     isEmpty: () => currentSize === 0,
