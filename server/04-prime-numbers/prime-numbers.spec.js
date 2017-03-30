@@ -13,7 +13,7 @@ describe('the prime factors canary spec', () => {
     return factors;
   };
 
-  describe.only('a prime factors function should return', () => {
+  describe('a prime factors function should return', () => {
     it('no prime factor for 1', () => {
       primeFactors(1).should.be.deepEqual([]);
     });
