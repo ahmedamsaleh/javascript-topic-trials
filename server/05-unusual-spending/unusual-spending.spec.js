@@ -11,15 +11,18 @@ describe.only('the unusual spending spec', () => {
       const fetch = replace('./fetch')['fetch'];
       const categorize = replace('./categorize')['categorize'];
       const email = replace('./email')['email'];
+      const user_id = 'user-id';
+      const payments = 'payments';
+      const categorizedPayments = 'categorized-payments';
 
       let unusualSpending;
 
-      when(fetch('user id')).thenReturn('payments');
-      when(categorize('payments')).thenReturn('categorized payments');
+      when(fetch(user_id)).thenReturn(payments);
+      when(categorize('payments')).thenReturn(categorizedPayments);
 
-      unusualSpending = require('./unusual-spending').unusualSpending;
-      unusualSpending('user-id');
-      verify(email('user-id', 'categorized-payments'));
+      unusualSpending = require('./unusual-spending')['unusualSpending'];
+      unusualSpending(user_id);
+      verify(email(user_id, categorizedPayments));
 
     });
 

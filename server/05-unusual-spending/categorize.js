@@ -1,2 +1,2 @@
 const categorize = () => {};
-exports.categorize = categorize;
+export {categorize};

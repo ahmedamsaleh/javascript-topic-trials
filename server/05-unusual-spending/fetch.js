@@ -1,2 +1,2 @@
-const fetch = ()=>{};
-exports.fetch = fetch;
+const fetch = () => {};
+export {fetch};
