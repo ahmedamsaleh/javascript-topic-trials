@@ -1,7 +1,7 @@
 /*eslint dot-notation: "off"*/
 import {replace, when, verify, reset} from '../../test-helper';
 
-describe.only('the unusual spending spec', () => {
+describe('the unusual spending spec', () => {
   it('shows the unusual spending works', () => {
     true.should.be.true();
   });
