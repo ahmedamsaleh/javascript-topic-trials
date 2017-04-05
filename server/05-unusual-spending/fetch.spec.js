@@ -7,9 +7,9 @@ describe('the fetch spec', () => {
   });
 
   describe('test fetch', () => {
-    it('get prior and current payments when fetch calls month and payment API', () => {
+    it('get prior and current payments when fetch calls month and payments API', () => {
       const months = replace('./months');
-      const api = replace('./api')['api'];
+      const api = replace('./api-wrapper')['apiWrapper'];
 
       when(months.prior()).thenReturn('prior');
       when(months.current()).thenReturn('current');

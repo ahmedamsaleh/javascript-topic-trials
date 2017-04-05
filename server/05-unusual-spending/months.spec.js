@@ -4,7 +4,7 @@ describe('month spec', () => {
     true.should.be.true();
   });
 
-  describe.only('months should return', () => {
+  describe('months should return', () => {
 
     it('current month', () => {
       months.current(new Date(2017, 1, 2)).should.be.deepEqual({
