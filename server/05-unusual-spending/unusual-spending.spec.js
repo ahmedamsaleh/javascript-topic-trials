@@ -15,6 +15,9 @@ describe.only('canary test', () => {
       const fetch = replace('./fetch')['fetch'];
       const categorize = replace('./categorize')['categorize'];
       const email = replace('./email')['email'];
+
+      let unusualSpending;
+
       //act
 
       //assert
