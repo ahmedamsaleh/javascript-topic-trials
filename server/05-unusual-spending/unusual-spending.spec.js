@@ -28,6 +28,7 @@ describe.only('canary test', () => {
       unusualSpending = require('./unusual-spending')['unusualSpending'];
 
       //act
+      unusualSpending(userId);
 
       //assert
     });
