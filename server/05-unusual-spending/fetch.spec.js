@@ -18,11 +18,23 @@ describe.only('fetch should', () => {
     let userId = 'dummy userId';
     let currentMonth = 'dummy currentMonth';
     let priorMonth = 'dummy priorMonth';
-    let priorMonthPayment = 'dummy priorMonthPayment';
-    let currentMonthPayment = 'dummy currentMonthPayment';
+    let priorMonthsPayment = 'dummy priorMonthsPayment';
+    let currentMonthsPayment = 'dummy currentMonthsPayment';
 
     when(months.current()).thenReturn(currentMonth);
     when(months.prior()).thenReturn(priorMonth);
-    when(apiWrapper()).thenReturn(priorMonthPayment);
+    //when(apiWrapper(userId, priorMonth)).thenReturn(priorMonthsPayment);
+    //when(apiWrapper(userId, currentMonth)).thenReturn(currentMonthsPayment);
+
+    let fetch;
+
+    fetch = require('./fetch')['fetch'];
+
+    //act
+    fetch(userId);
+
+    //assert
+    verify(apiWrapper(userId, priorMonth));
+    verify(apiWrapper(userId, currentMonth));
   });
 });
