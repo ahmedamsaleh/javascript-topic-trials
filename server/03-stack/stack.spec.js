@@ -4,12 +4,17 @@ describe.only('the stack spec', () => {
   });
 
    let stack = {
-     isEmpty: () => true
+     isEmpty: () => true,
+     size: () => 0
    };
 
   describe('a stack should', () => {
     it('be empty on create', () => {
       stack.isEmpty().should.be.true();
+    });
+
+    it('size zero on create', () => {
+      stack.size().should.be.equal(0);
     });
 
     it('size one on push');
