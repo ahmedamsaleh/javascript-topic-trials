@@ -2,7 +2,7 @@
  * Created by jhtrujil on 4/5/2017.
  */
 /*eslint dot-notation: "off"*/
-import {replace, when, verify, reset} from 'td';
+import {replace, when, verify, reset} from 'testdouble';
 
 describe.only('canary test', () => {
   it('shows the infrastructure works', () => {
@@ -31,6 +31,7 @@ describe.only('canary test', () => {
       unusualSpending(userId);
 
       //assert
+      verify(email(userId, categorizedPayments));
     });
     afterEach(() => {
       reset();
