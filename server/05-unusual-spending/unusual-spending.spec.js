@@ -4,7 +4,7 @@
 /*eslint dot-notation: "off"*/
 import {replace, when, verify, reset} from 'testdouble';
 
-describe.only('canary test', () => {
+describe('canary test', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
