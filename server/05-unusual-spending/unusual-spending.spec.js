@@ -18,6 +18,13 @@ describe.only('canary test', () => {
 
       let unusualSpending;
 
+      let payments = 'dummy payments';
+      let userId = 'dummy userId';
+      let categorizedPayments = 'dummy categorizedPayments';
+
+      when(fetch(userId)).thenReturn(payments);
+      when(categorize(payments)).thenReturn(categorizedPayments);
+
       //act
 
       //assert
