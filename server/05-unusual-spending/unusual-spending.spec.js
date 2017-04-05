@@ -25,6 +25,8 @@ describe.only('canary test', () => {
       when(fetch(userId)).thenReturn(payments);
       when(categorize(payments)).thenReturn(categorizedPayments);
 
+      unusualSpending = require('./unusual-spending')['unusualSpending'];
+
       //act
 
       //assert
