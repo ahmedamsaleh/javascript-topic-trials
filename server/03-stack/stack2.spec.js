@@ -23,7 +23,7 @@ const makeStack = (capacity) => {
   };
 };
 
-describe.only('a stack should', () => {
+describe('a stack should', () => {
   let stack;
 
   beforeEach(() => {

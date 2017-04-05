@@ -7,17 +7,17 @@ describe('the prime factors canary spec', () => {
 
   const primeFactors = (number) => {
     let factors = [];
+    let divisor = 2;
 
-    if (number > 1) {
-      for (; number % 2 === 0; number = number / 2) factors.push(2);
-
-      if (number > 1) factors.push(number);
+    while (number > 1) {
+      for (; number % divisor === 0; number = number / divisor) factors.push(divisor);
+      divisor++;
     }
 
     return factors;
   };
 
-  describe.only('a prime factors function should', () => {
+  describe('a prime factors function should', () => {
     it('return none for 1', () => {
       primeFactors(1).should.deepEqual([]);
     });
@@ -50,6 +50,8 @@ describe('the prime factors canary spec', () => {
       primeFactors(8).should.deepEqual([2, 2, 2]);
     });
 
-    it('return 3 and 3 for 9');
+    it('return 3 and 3 for 9', () => {
+      primeFactors(9).should.deepEqual([3, 3]);
+    });
   });
 });
