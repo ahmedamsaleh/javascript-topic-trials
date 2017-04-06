@@ -3,7 +3,7 @@ import {lineCount} from './line-count';
 describe('line count', () => {
   it('for file —— line-count.js —— should be 13', done => {
     const successHandler = numberOfLines => {
-      numberOfLines.should.equal(12);
+      numberOfLines.should.equal(13);
       done();
     };
 
