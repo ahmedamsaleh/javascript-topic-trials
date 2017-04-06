@@ -15,7 +15,7 @@ describe('line count', () => {
       'is-not-there.js', done => {
 
     const errorHandler = message => {
-      message.should.equal('problem reading file: server/06-asynch-callbacks/line-count.js');
+      message.should.equal('problem reading file: is-not-there.js');
       done();
     };
 
