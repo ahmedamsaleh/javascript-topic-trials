@@ -5,7 +5,7 @@ describe('categorize spec', () => {
     true.should.be.true();
   });
 
-  describe.only('categorize should', () => {
+  describe('categorize should', () => {
     it('return categorize for payments exceed 150% of prior month cost', () => {
       const payments = {
         current: {
