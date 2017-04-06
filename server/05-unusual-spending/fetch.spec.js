@@ -12,8 +12,11 @@ describe('canary test', () => {
 
 describe.only('fetch should', () => {
   it('interact with months and api', () => {
+    //arrange
     const months = replace('./months');
     const apiWrapper = replace('./api-wrapper')['apiWrapper'];
+
+    let fetch;
 
     let userId = 'dummy userId';
     let currentMonth = 'dummy currentMonth';
@@ -23,18 +26,25 @@ describe.only('fetch should', () => {
 
     when(months.current()).thenReturn(currentMonth);
     when(months.prior()).thenReturn(priorMonth);
-    //when(apiWrapper(userId, priorMonth)).thenReturn(priorMonthsPayment);
-    //when(apiWrapper(userId, currentMonth)).thenReturn(currentMonthsPayment);
-
-    let fetch;
+    when(apiWrapper(userId, priorMonth)).thenReturn(priorMonthsPayment);
+    when(apiWrapper(userId, currentMonth)).thenReturn(currentMonthsPayment);
 
     fetch = require('./fetch')['fetch'];
 
-    //act
-    fetch(userId);
+    //act and assert
+    let payments = {
+      current: {
+        month: currentMonth,
+        payments: currentMonthsPayment
+      },
 
-    //assert
-    verify(apiWrapper(userId, priorMonth));
-    verify(apiWrapper(userId, currentMonth));
+      prior: {
+        month: priorMonth,
+        payments: priorMonthsPayment
+      }
+    }
+
+    fetch(userId).should.deepEqual(payments);
+
   });
 });
