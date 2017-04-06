@@ -12,5 +12,13 @@ describe('line count', () => {
   });
 
   it('for file —— is-not-there.js —— should be problem reading file: ' +
-      'is-not-there.js');
+      'is-not-there.js', done => {
+
+    const errorHandler = message => {
+      message.should.equal('problem reading file: server/06-asynch-callbacks/line-count.js');
+      done();
+    };
+
+    lineCount('is-not-there.js', errorHandler);
+  });
 });
