@@ -3,12 +3,21 @@ describe.only('the stack spec', () => {
     true.should.be.true();
   });
 
-   let stack = {
-     isEmpty: () => true,
-     size: () => 0
+   let stack;
+
+   let createStack = () => {
+
+      return {
+        isEmpty: () => true,
+        size: () => 0,
+        push: () => {}
+      };
    };
 
   describe('a stack should', () => {
+    beforeEach(() => {
+      stack = createStack();
+    });
     it('be empty on create', () => {
       stack.isEmpty().should.be.true();
     });
@@ -17,7 +26,14 @@ describe.only('the stack spec', () => {
       stack.size().should.be.equal(0);
     });
 
-    it('size one on push');
+    it('size one on push', () => {
+      // arrange
+      // act
+      // assert
+      // stack.push();
+      // stack.size().should.be.equal(1);
+    });
+
     it('not be empty on push');
     it('have size zero on push and pop');
     it('empty on push and pop');
