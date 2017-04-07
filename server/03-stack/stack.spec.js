@@ -7,8 +7,9 @@ describe.only('the stack spec', () => {
 
    let createStack = () => {
       let size = 0;
+
       return {
-        isEmpty: () => true,
+        isEmpty: () => size === 0,
         size: () => size,
         push: () => size++,
         pop: () => size--
@@ -38,7 +39,10 @@ describe.only('the stack spec', () => {
       stack.size().should.be.equal(0);
     });
 
-    it('not be empty on push');
+    it('not be empty on push', () => {
+      stack.push();
+      stack.isEmpty().should.be.false();
+    });
     it('empty on push and pop');
     it('overflow');
     it('underflow');
