@@ -7,11 +7,15 @@ describe.only('the stack spec', () => {
 
    let createStack = () => {
       let size = 0;
+      let maximum = 1;
 
       return {
         isEmpty: () => size === 0,
         size: () => size,
-        push: () => size++,
+        push: () => {
+          if (maximum === size) throw new Error('overflow');
+          size++;
+        },
         pop: () => size--
       };
    };
@@ -50,7 +54,13 @@ describe.only('the stack spec', () => {
       stack.size().should.be.equal(0);
     });
 
-    it('overflow');
+    it('overflow', () => {
+      (() => {
+        stack.push();
+        stack.push();
+      }).should.throw('overflow');
+    });
+
     it('underflow');
     it('pop what was pushed');
     it('pop the two elements that were pushed');
