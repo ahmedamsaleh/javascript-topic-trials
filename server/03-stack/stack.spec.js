@@ -28,9 +28,20 @@ describe.only('the stack spec', () => {
       stack.size().should.be.equal(0);
     });
 
+    it('not be empty on push', () => {
+      stack.push();
+      stack.isEmpty().should.be.false();
+    });
+
     it('size one on push', () => {
       stack.push();
       stack.size().should.be.equal(1);
+    });
+
+    it('empty on push and pop', () => {
+      stack.push();
+      stack.pop();
+      stack.isEmpty().should.be.true();
     });
 
     it('have size zero on push and pop', () => {
@@ -39,11 +50,6 @@ describe.only('the stack spec', () => {
       stack.size().should.be.equal(0);
     });
 
-    it('not be empty on push', () => {
-      stack.push();
-      stack.isEmpty().should.be.false();
-    });
-    it('empty on push and pop');
     it('overflow');
     it('underflow');
     it('pop what was pushed');
