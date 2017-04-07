@@ -6,11 +6,12 @@ describe.only('the stack spec', () => {
    let stack;
 
    let createStack = () => {
-
+      let size = 0;
       return {
         isEmpty: () => true,
-        size: () => 0,
-        push: () => {}
+        size: () => size,
+        push: () => size++,
+        pop: () => size--
       };
    };
 
@@ -27,15 +28,17 @@ describe.only('the stack spec', () => {
     });
 
     it('size one on push', () => {
-      // arrange
-      // act
-      // assert
-      // stack.push();
-      // stack.size().should.be.equal(1);
+      stack.push();
+      stack.size().should.be.equal(1);
+    });
+
+    it('have size zero on push and pop', () => {
+      stack.push();
+      stack.pop();
+      stack.size().should.be.equal(0);
     });
 
     it('not be empty on push');
-    it('have size zero on push and pop');
     it('empty on push and pop');
     it('overflow');
     it('underflow');
