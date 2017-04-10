@@ -10,7 +10,7 @@ describe('canary test shows', () => {
   });
 });
 
-describe.only('months should', () => {
+describe('months should', () => {
   it('return the current month', () => {
     months.current(new Date('2017-12-1')).should.deepEqual({year: 2017, month: 12});
   });
