@@ -17,5 +17,7 @@ describe.only('line count can be checked', () => {
     return lineCount('server/07-asynch-promises/line-count.js').then(onSuccess);
   });
 
-  it('by using eventually or fulfilledWith');
+  it('by using eventually or fulfilledWith', () => {
+    return lineCount('server/07-asynch-promises/line-count.js').should.eventually.equal(14);
+  });
 });
