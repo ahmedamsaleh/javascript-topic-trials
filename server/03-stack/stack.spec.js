@@ -6,17 +6,21 @@ describe.only('the stack spec', () => {
    let stack;
 
    let createStack = () => {
-      let size = 0;
-      let maximum = 1;
+      let maximum = 5;
+      let internalStack = [];
+
 
       return {
-        isEmpty: () => size === 0,
-        size: () => size,
-        push: () => {
-          if (maximum === size) throw new Error('overflow');
-          size++;
+        isEmpty: () => internalStack.length === 0,
+        size: () => internalStack.length,
+        push: (element) => {
+          if (maximum === internalStack.length) throw new Error('overflow');
+          internalStack.push(element);
         },
-        pop: () => size--
+        pop: () => {
+          if (internalStack.length === 0) throw new Error('underflow');
+          return internalStack.pop();
+        }
       };
    };
 
@@ -58,12 +62,31 @@ describe.only('the stack spec', () => {
       (() => {
         stack.push();
         stack.push();
+        stack.push();
+        stack.push();
+        stack.push();
+        stack.push();
       }).should.throw('overflow');
     });
 
-    it('underflow');
-    it('pop what was pushed');
-    it('pop the two elements that were pushed');
+    it('underflow', () => {
+      (() => {
+          stack.pop();
+      }).should.throw('underflow');
+    });
+
+    it('pop what was pushed', () => {
+      stack.push(8);
+      stack.pop().should.be.equal(8);
+    });
+
+    it('pop the two elements that were pushed', () => {
+      stack.push(3);
+      stack.push(4);
+      stack.pop().should.be.equal(4);
+      stack.pop().should.be.equal(3);
+    });
+
     it('handle negative size');
   });
 });
