@@ -6,20 +6,20 @@ describe.only('the stack spec', () => {
    let stack;
 
    let createStack = () => {
-      let maximum = 5;
-      let internalStack = [];
+      let capacity = 5;
+      let queue = [];
 
 
       return {
-        isEmpty: () => internalStack.length === 0,
-        size: () => internalStack.length,
+        isEmpty: () => queue.length === 0,
+        size: () => queue.length,
         push: (element) => {
-          if (maximum === internalStack.length) throw new Error('overflow');
-          internalStack.push(element);
+          if (capacity === queue.length) throw new Error('overflow');
+          queue.push(element);
         },
         pop: () => {
-          if (internalStack.length === 0) throw new Error('underflow');
-          return internalStack.pop();
+          if (queue.length === 0) throw new Error('underflow');
+          return queue.pop();
         }
       };
    };
