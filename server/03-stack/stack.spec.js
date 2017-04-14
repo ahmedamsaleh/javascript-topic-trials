@@ -5,8 +5,7 @@ describe.only('the stack spec', () => {
 
    let stack;
 
-   let createStack = () => {
-      let capacity = 5;
+   let createStack = (capacity = 5) => {
       let queue = [];
 
 
