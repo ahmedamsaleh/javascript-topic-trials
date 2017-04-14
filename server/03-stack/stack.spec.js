@@ -6,6 +6,7 @@ describe.only('the stack spec', () => {
    let stack;
 
    let createStack = (capacity = 5) => {
+     if (capacity < 0) throw new Error('negative size');
       let queue = [];
 
 
@@ -86,6 +87,10 @@ describe.only('the stack spec', () => {
       stack.pop().should.be.equal(3);
     });
 
-    it('handle negative size');
+    it('handle negative size', () => {
+      ( () => {
+        stack = createStack(-3);
+      }).should.throw('negative size');
+    });
   });
 });
