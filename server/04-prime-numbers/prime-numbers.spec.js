@@ -6,9 +6,8 @@ describe.only('the prime numbers canary spec', () => {
   let primeFactors = (number) => {
     let factors = [];
     if (number > 1) {
-      while (number % 2 === 0){
+      for ( ; number % 2 === 0;  number /= 2 ){
         factors.push(2);
-        number /= 2;
       }
     }
     if (number > 1 ) {
