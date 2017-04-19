@@ -3,13 +3,21 @@ describe.only('the prime numbers canary spec', () => {
     true.should.be.true();
   });
 
-  function primeFactors(number) {
+  let primeFactors = (number) => {
     let factors = [];
-    if (number > 1) factors.push(number);
+    if (number > 1) {
+      if (number % 2 === 0){
+        factors.push(2);
+        number /= 2;
+      }
+      if (number > 1 ) {
+        factors.push(number);
+      }
+    }
     return factors;
   }
 
-  describe('a prime refactor function should', () => {
+  describe('a prime refactor function', () => {
     it('1 should return nothing', () => {
       primeFactors(1).should.be.deepEqual([]);
     });
@@ -22,7 +30,10 @@ describe.only('the prime numbers canary spec', () => {
       primeFactors(3).should.be.deepEqual([3]);
     });
 
-    it('4 should return 2, 2');
+    it('4 should return 2, 2', () => {
+      primeFactors(4).should.be.deepEqual([2, 2]);
+    });
+
     it('5 should return 5');
     it('6 should return 2, 3');
     it('7 should return 7');
