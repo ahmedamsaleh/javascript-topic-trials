@@ -6,7 +6,7 @@ describe.only('the prime numbers canary spec', () => {
   let primeFactors = (number) => {
     let factors = [];
     if (number > 1) {
-      if (number % 2 === 0){
+      while (number % 2 === 0){
         factors.push(2);
         number /= 2;
       }
@@ -46,7 +46,9 @@ describe.only('the prime numbers canary spec', () => {
       primeFactors(7).should.be.deepEqual([7]);
     });
 
-    it('8 should return 2, 2, 2');
+    it('8 should return 2, 2, 2', () => {
+      primeFactors(8).should.be.deepEqual([2, 2, 2]);
+    });
 
     it('9 should return 3, 3, 3');
     it('10 should return 2, 5');
