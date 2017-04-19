@@ -10,9 +10,9 @@ describe.only('the prime numbers canary spec', () => {
         factors.push(2);
         number /= 2;
       }
-      if (number > 1 ) {
-        factors.push(number);
-      }
+    }
+    if (number > 1 ) {
+      factors.push(number);
     }
     return factors;
   }
@@ -34,7 +34,9 @@ describe.only('the prime numbers canary spec', () => {
       primeFactors(4).should.be.deepEqual([2, 2]);
     });
 
-    it('5 should return 5');
+    it('5 should return 5', () => {
+      primeFactors(5).should.be.deepEqual([5]);
+    });
     it('6 should return 2, 3');
     it('7 should return 7');
     it('8 should return 2, 2, 2');
