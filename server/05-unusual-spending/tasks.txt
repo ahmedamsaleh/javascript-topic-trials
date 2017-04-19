@@ -1,0 +1,4 @@
+1-Test fetch.js i.e implement it and its sub-componet months
+2-Test categorize i.e. implement it
+3-retrieve other projects
+4-Study Angular 1 for the capstone project
