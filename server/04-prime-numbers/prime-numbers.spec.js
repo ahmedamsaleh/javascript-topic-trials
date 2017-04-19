@@ -37,9 +37,17 @@ describe.only('the prime numbers canary spec', () => {
     it('5 should return 5', () => {
       primeFactors(5).should.be.deepEqual([5]);
     });
-    it('6 should return 2, 3');
-    it('7 should return 7');
+
+    it('6 should return 2, 3', () => {
+      primeFactors(6).should.be.deepEqual([2, 3]);
+    });
+
+    it('7 should return 7', () => {
+      primeFactors(7).should.be.deepEqual([7]);
+    });
+
     it('8 should return 2, 2, 2');
+
     it('9 should return 3, 3, 3');
     it('10 should return 2, 5');
   });
