@@ -3,16 +3,25 @@ describe.only('the prime numbers canary spec', () => {
     true.should.be.true();
   });
 
-  function primeFactors() {
-    return '';
+  function primeFactors(number) {
+    var factors = [];
+    if (number > 1) {return [number];}
+    return [];
   }
 
   describe('a prime refactor function should', () => {
     it('1 should return nothing', () => {
-      primeFactors().should.be.equal('');
+      primeFactors(1).should.be.deepEqual([]);
     });
-    it('2 should return 2');
-    it('3 should return 3');
+
+    it('2 should return 2', () => {
+      primeFactors(2).should.be.deepEqual([2]);
+    });
+
+    it('3 should return 3', () => {
+      primeFactors(3).should.be.deepEqual([3]);
+    });
+
     it('4 should return 2, 2');
     it('5 should return 5');
     it('6 should return 2, 3');
