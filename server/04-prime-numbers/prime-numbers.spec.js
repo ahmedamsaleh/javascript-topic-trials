@@ -51,5 +51,9 @@ describe('the prime numbers canary spec', () => {
     it('9 should return 3, 3', () => {
       primeFactors(9).should.be.deepEqual([3, 3]);
     });
+
+    it('10 should return 2, 5', () => {
+      primeFactors(10).should.be.deepEqual([2, 5]);
+    });
   });
 });
