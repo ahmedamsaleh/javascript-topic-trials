@@ -1,3 +1,5 @@
+/*eslint no-param-reassign: "off"*/
+
 describe.only('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
@@ -6,15 +8,18 @@ describe.only('the prime numbers canary spec', () => {
   let primeFactors = (number) => {
     let factors = [];
     if (number > 1) {
-      for ( ; number % 2 === 0;  number /= 2 ){
+      for ( ; number % 2 === 0; number /= 2 ){
         factors.push(2);
+      }
+      for ( ; number % 3 === 0; number /= 3 ){
+        factors.push(3);
       }
     }
     if (number > 1 ) {
       factors.push(number);
     }
     return factors;
-  }
+  };
 
   describe('a prime refactor function', () => {
     it('1 should return nothing', () => {
@@ -49,7 +54,9 @@ describe.only('the prime numbers canary spec', () => {
       primeFactors(8).should.be.deepEqual([2, 2, 2]);
     });
 
-    it('9 should return 3, 3, 3');
+    it('9 should return 3, 3', () => {
+      primeFactors(9).should.be.deepEqual([3, 3]);
+    });
     it('10 should return 2, 5');
   });
 });
