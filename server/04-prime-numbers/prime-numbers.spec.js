@@ -5,8 +5,8 @@ describe.only('the prime numbers canary spec', () => {
 
   function primeFactors(number) {
     var factors = [];
-    if (number > 1) {return [number];}
-    return [];
+    if (number > 1) {factors.push(number)}
+    return factors;
   }
 
   describe('a prime refactor function should', () => {
