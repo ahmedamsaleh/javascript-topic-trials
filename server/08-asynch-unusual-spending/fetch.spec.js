@@ -10,7 +10,7 @@ describe('canary test', () => {
   });
 });
 
-describe.only('fetch should', () => {
+describe('fetch should', () => {
   it('interact with months and api', () => {
     //arrange
     const months = replace('./months');
