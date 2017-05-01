@@ -10,11 +10,11 @@ describe('canary test shows', () => {
   });
 });
 
-describe.only('fetch should', () => {
+describe('fetch should', () => {
   it('call months and api and return payments', () => {
     //test doubles
     const months = replace('./months');
-    const api = replace('./api')['api'];
+    const api = replace('./api').api;
 
     //stub data
     let priorMonth = 'dummy prior month';
@@ -30,7 +30,7 @@ describe.only('fetch should', () => {
     when(api(userId, currentMonth)).thenReturn(currentMonthsPayments);
 
     //SUT
-    let fetch = require('./fetch')['fetch'];
+    let fetch = require('./fetch').fetch;
 
     //assert
     fetch(userId).should.deepEqual({
