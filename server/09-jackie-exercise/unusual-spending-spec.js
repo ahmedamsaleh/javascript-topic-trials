@@ -10,7 +10,7 @@ describe('canary test should', () => {
   });
 })
 
-describe.only('unusual spending should', () => {
+describe('unusual spending should', () => {
   it('interact with fetch, categorize and email', () => {
     //test doubles
     const fetch = replace('./fetch')['fetch'];
